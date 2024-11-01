@@ -10,6 +10,7 @@ import ErrorPages from './pages/ErrorPages';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import ListedBook from './pages/ListedBook';
+import BookDetails from './pages/BookDetails';
 
 const router =createBrowserRouter([
   {
@@ -23,7 +24,14 @@ const router =createBrowserRouter([
       },
       {
         path: "/listedbook",
-        element: <ListedBook></ListedBook>
+        element: <ListedBook></ListedBook>,
+        loader: ()=> fetch("/booksData.json")
+      },
+      {
+        path: "/book/:bookIdx",
+        element: <BookDetails></BookDetails>,
+        loader: ()=> fetch("./booksData.json"),
+        
       },
       {
         path: "/contact",
