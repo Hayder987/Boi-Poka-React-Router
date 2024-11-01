@@ -5,6 +5,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Root from './Components/Root';
 import ErrorPages from './pages/ErrorPages';
 import Home from './pages/Home';
@@ -44,5 +47,17 @@ const router =createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}></RouterProvider>
+    <ToastContainer 
+    position="top-right"
+    autoClose={1900}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="light"
+    />
   </StrictMode>,
 )

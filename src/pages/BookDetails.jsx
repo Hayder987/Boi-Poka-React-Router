@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import { setReadItems } from "../utilites/utility";
+import { addWishList, setReadItems } from "../utilites/utility";
 
 
 
@@ -25,6 +25,9 @@ const BookDetails = () => {
 
     const readBtnHandaler=(id)=>{
        setReadItems(id)   
+    }
+    const wishBtnhandeler =(id)=>{
+      addWishList(id)
     }
 
     return (
@@ -73,7 +76,7 @@ const BookDetails = () => {
                </p>
                <div className="flex gap-6 mb-10">
                 <button onClick={()=> readBtnHandaler(bookId)} className="border-2 py-3 px-6 rounded font-bold  bg-blue-100">Mark as Read</button>
-                <button className="border-2 py-3 px-6 rounded font-bold bg-green-500 text-white  ">Wishlist</button>
+                <button onClick={()=> wishBtnhandeler(bookId)} className="border-2 py-3 px-6 rounded font-bold bg-green-500 text-white  ">Wishlist</button>
                </div>
                <div className="">
                 <button onClick={backBtnHandaler} className="border-2 w-full py-3 px-8 rounded font-bold  bg-green-100 text-green-600">Back To Home</button>
