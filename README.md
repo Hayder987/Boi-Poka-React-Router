@@ -17,7 +17,7 @@
 - daisyui
 - tailwind css
 
-## [Live-Link] ()
-
+## [Live-Link] (https://boi-poka-hdr.netlify.app/)
+### (https://boi-poka-hdr.netlify.app/)
 
 
