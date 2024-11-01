@@ -71,7 +71,14 @@ const addWishList =(id)=>{
     }
 }
 
+const removeAllReadDb =()=>{
+    localStorage.removeItem("read");
+}
+
+const removeAllwishDb =()=>{
+    localStorage.removeItem("wish");
+}
 
 
-
-export {setReadItems, getReadItems, addWishList, getWishItem ,removewishItem,saveReadItems, removeReadItem,}
+export {setReadItems, getReadItems, addWishList, getWishItem ,removewishItem,
+    saveReadItems, removeReadItem, removeAllReadDb, removeAllwishDb}

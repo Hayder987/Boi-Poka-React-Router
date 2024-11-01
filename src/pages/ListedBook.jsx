@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getReadItems, getWishItem,  removeReadItem, removewishItem } from "../utilites/utility";
+import { getReadItems, getWishItem,  removeAllReadDb,  removeAllwishDb,  removeReadItem, removewishItem } from "../utilites/utility";
 import Book from "../Components/Book";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -39,15 +39,26 @@ const ListedBook = () => {
      removewishItem(id)
    }
 
+
+   const removeAllReadItem = ()=>{
+          removeAllReadDb()
+          setAllReadData([])
+   }
+
+   const removeAllwishItems = ()=>{
+    removeAllwishDb()
+    setAllWishData([])
+}
+
    
     
     return (
         <div>
 
             <div className="min-h-screen">
-               <Tabs>
+               <Tabs >
                  <TabList>
-                   <Tab >Read Books</Tab>
+                   <Tab>Read Books</Tab>
                    <Tab>Wish-List</Tab>
                  </TabList>
              
@@ -67,7 +78,7 @@ const ListedBook = () => {
                       } 
                         
                      </div>
-                     <div className="p-4 flex justify-center">
+                     <div onClick={removeAllReadItem} className="p-4 flex justify-center">
                          {
                            allReadData.length>0 ? <button  className="bg-orange-400 font-bold  py-3 px-6 rounded-xl">Clear All</button>:
                            <h1 className="text-3xl font-bold">No Books Found!</h1>
@@ -90,6 +101,12 @@ const ListedBook = () => {
                         ))
                       } 
                         
+                     </div>
+                     <div onClick={removeAllwishItems} className="p-4 flex justify-center">
+                         {
+                           allWishData.length>0 ? <button  className="bg-orange-400 font-bold  py-3 px-6 rounded-xl">Clear All</button>:
+                           <h1 className="text-3xl font-bold">No Books Found!</h1>
+                         }
                      </div>
                   </div>
                  </TabPanel>
