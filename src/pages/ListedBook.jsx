@@ -49,13 +49,36 @@ const ListedBook = () => {
     removeAllwishDb()
     setAllWishData([])
 }
+const [sort, setSort]= useState("")
 
+const sortBtnHandeler=(sortData)=>{
+  setSort(sortData)
+  if(sortData==="Pages"){
+    const sortReadData = [...allReadData].sort((a,b)=> a.totalPages - b.totalPages)
+    setAllReadData(sortReadData)
+  }
+  if(sortData==="Rating"){
+    const sortReadData2 = [...allReadData].sort((a,b)=> b.rating - a.rating)
+    setAllReadData(sortReadData2)
+  }
+}
    
     
     return (
         <div>
 
             <div className="min-h-screen">
+              <div className="relative">
+                <div className="dropdown dropdown-bottom absolute -top-10 right-0">
+                  <div tabIndex={0} role="button" className="btn m-3">{
+                    sort? `Sorted-By: ${sort}`: "Sorted-By"
+                    }</div>
+                  <ul tabIndex={0} className="dropdown-content menu bg-blue-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li onClick={()=> sortBtnHandeler("Pages")}><a>Pages</a></li>
+                    <li onClick={()=> sortBtnHandeler("Rating")}><a>Rating</a></li>
+                  </ul>
+                </div>
+              </div>
                <Tabs >
                  <TabList>
                    <Tab>Read Books</Tab>
