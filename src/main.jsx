@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import ListedBook from './pages/ListedBook';
 import BookDetails from './pages/BookDetails';
+import DashBord from './pages/DashBord';
 
 const router =createBrowserRouter([
   {
@@ -39,6 +40,11 @@ const router =createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>
+      },
+      {
+        path: "/dashboard",
+        loader: ()=> fetch('./booksData.json'),
+        element: <DashBord></DashBord>
       }
     ]
   }
